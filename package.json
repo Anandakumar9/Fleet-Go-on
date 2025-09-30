@@ -1,0 +1,39 @@
+{
+  "name": "fleet-go-on",
+  "version": "1.0.0",
+  "description": "Aggregator app for quick commerce and food delivery services",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run customer:dev\" \"npm run partner:dev\"",
+    "backend:dev": "cd backend && npm run dev",
+    "customer:dev": "cd customer-app && npm start",
+    "partner:dev": "cd delivery-partner-app && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../customer-app && npm install && cd ../delivery-partner-app && npm install",
+    "build": "npm run backend:build && npm run customer:build && npm run partner:build",
+    "backend:build": "cd backend && npm run build",
+    "customer:build": "cd customer-app && npm run build",
+    "partner:build": "cd delivery-partner-app && npm run build",
+    "test": "npm run backend:test && npm run customer:test && npm run partner:test",
+    "backend:test": "cd backend && npm test",
+    "customer:test": "cd customer-app && npm test",
+    "partner:test": "cd delivery-partner-app && npm test"
+  },
+  "keywords": [
+    "aggregator",
+    "food-delivery",
+    "quick-commerce",
+    "react-native",
+    "nodejs"
+  ],
+  "author": "Fleet-Go-on Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "backend",
+    "customer-app",
+    "delivery-partner-app",
+    "shared"
+  ]
+}
