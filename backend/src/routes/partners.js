@@ -38,7 +38,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     const todayEarnings = await Order.aggregate([
       {
         $match: {
-          deliveryPartner: mongoose.Types.ObjectId(partnerId),
+          deliveryPartner: new mongoose.Types.ObjectId(partnerId),
           status: 'delivered',
           createdAt: { $gte: todayStart }
         }
